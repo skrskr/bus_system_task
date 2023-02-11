@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // UserSeeder::class,
-            CitySeeder::class
+            // CitySeeder::class,
+            BusSeeder::class,
         ]);
     }
 }
