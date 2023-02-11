@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\V1\AuthController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,4 +14,7 @@
 |
 */
 
-require_once 'api/v1.php';
+Route::group(['prefix' => "v1"], function () {
+    Route::post("login", [AuthController::class, 'login']);
+    
+});
