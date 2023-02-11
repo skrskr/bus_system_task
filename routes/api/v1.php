@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\V1\AuthController;
+use App\Http\Controllers\API\V1\BookingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => "v1"], function () {
     Route::post("login", [AuthController::class, 'login']);
     
+    Route::group(['middleware' => 'auth:sanctum'], function () {
+        // booking routes
+        Route::get("booking", [BookingController::class, 'index']);
+        Route::post("booking", [BookingController::class, 'store']);
+    });
 });
