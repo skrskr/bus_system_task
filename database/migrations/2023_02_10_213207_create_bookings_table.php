@@ -20,6 +20,8 @@ class CreateBookingsTable extends Migration
             $table->unsignedInteger("to_city_code");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('bus_id');
+            $table->foreign('bus_id')->references('id')->on('buses')->onDelete('cascade');
             $table->timestamps();
         });
     }

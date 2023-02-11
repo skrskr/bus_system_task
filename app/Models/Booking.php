@@ -19,5 +19,6 @@ class Booking extends Model
         'from_city_code',
         'to_city_code',
         'user_id',
+        'bus_id',
     ];
 }
