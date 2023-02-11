@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "7dc36c01-417c-45df-b6b0-9543172ce71b",
+		"name": "bus_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12697718"
+	},
+	"item": [
+		{
+			"name": "Book Seat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from_city_code\": 1,\n    \"to_city_code\": 5,\n    \"seat_code\": 2,\n    \"bus_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"booking"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Book Seat - 401 Unautherized",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from_city_code\": 5,\n    \"to_city_code\": 5,\n    \"seat_code\": 1,\n    \"bus_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:29:40 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:29:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "Book Seat - booked success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from_city_code\": 1,\n    \"to_city_code\": 5,\n    \"seat_code\": 1,\n    \"bus_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:30:34 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:30:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"seat_code\": 1,\n        \"from_city_code\": 1,\n        \"to_city_code\": 5,\n        \"bus_id\": 1,\n        \"user_id\": 1,\n        \"updated_at\": \"2023-02-11T19:30:34.000000Z\",\n        \"created_at\": \"2023-02-11T19:30:34.000000Z\",\n        \"id\": 1\n    },\n    \"message\": \"Seat booked success\"\n}"
+				},
+				{
+					"name": "Book Seat - 422 validation error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"from_city_code\": 1,\n    \"to_city_code\": 5,\n    \"seat_code\": 150,\n    \"bus_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:31:06 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:31:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"The selected seat code is invalid.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "List Available seats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/booking?from_city_code=1&to_city_code=5&bus_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"booking"
+					],
+					"query": [
+						{
+							"key": "from_city_code",
+							"value": "1"
+						},
+						{
+							"key": "to_city_code",
+							"value": "5"
+						},
+						{
+							"key": "bus_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List Available seats - 401 Unauthenticated",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking?from_city_code=1&to_city_code=5&bus_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							],
+							"query": [
+								{
+									"key": "from_city_code",
+									"value": "1"
+								},
+								{
+									"key": "to_city_code",
+									"value": "5"
+								},
+								{
+									"key": "bus_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:17:21 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:17:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+				},
+				{
+					"name": "List Available seats - success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking?from_city_code=1&to_city_code=5&bus_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							],
+							"query": [
+								{
+									"key": "from_city_code",
+									"value": "1"
+								},
+								{
+									"key": "to_city_code",
+									"value": "5"
+								},
+								{
+									"key": "bus_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:18:52 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:18:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"seat_code\": 1\n        },\n        {\n            \"id\": 2,\n            \"seat_code\": 2\n        },\n        {\n            \"id\": 3,\n            \"seat_code\": 3\n        },\n        {\n            \"id\": 4,\n            \"seat_code\": 4\n        },\n        {\n            \"id\": 5,\n            \"seat_code\": 5\n        },\n        {\n            \"id\": 6,\n            \"seat_code\": 6\n        },\n        {\n            \"id\": 7,\n            \"seat_code\": 7\n        },\n        {\n            \"id\": 8,\n            \"seat_code\": 8\n        },\n        {\n            \"id\": 9,\n            \"seat_code\": 9\n        },\n        {\n            \"id\": 10,\n            \"seat_code\": 10\n        },\n        {\n            \"id\": 11,\n            \"seat_code\": 11\n        },\n        {\n            \"id\": 12,\n            \"seat_code\": 12\n        },\n        {\n            \"id\": 13,\n            \"seat_code\": 1\n        },\n        {\n            \"id\": 14,\n            \"seat_code\": 2\n        },\n        {\n            \"id\": 15,\n            \"seat_code\": 3\n        },\n        {\n            \"id\": 16,\n            \"seat_code\": 4\n        },\n        {\n            \"id\": 17,\n            \"seat_code\": 5\n        },\n        {\n            \"id\": 18,\n            \"seat_code\": 6\n        },\n        {\n            \"id\": 19,\n            \"seat_code\": 7\n        },\n        {\n            \"id\": 20,\n            \"seat_code\": 8\n        },\n        {\n            \"id\": 21,\n            \"seat_code\": 9\n        },\n        {\n            \"id\": 22,\n            \"seat_code\": 10\n        },\n        {\n            \"id\": 23,\n            \"seat_code\": 11\n        },\n        {\n            \"id\": 24,\n            \"seat_code\": 12\n        }\n    ],\n    \"message\": \"List of available seats\"\n}"
+				},
+				{
+					"name": "List Available seats - 422 validation error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer 1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/booking?to_city_code=5&bus_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"booking"
+							],
+							"query": [
+								{
+									"key": "from_city_code",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "to_city_code",
+									"value": "5"
+								},
+								{
+									"key": "bus_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:28:20 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 19:28:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        \"The from city code field is required when to city code is present.\",\n        \"The to city code must be greater than from city code.\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 18:50:51 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 18:50:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"1|RF1Vr1GYq18It3qABYCqZwT5nZAcsGKZo4tJcbQf\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"admin\",\n            \"email\": \"admin@mail.com\",\n            \"email_verified_at\": null,\n            \"created_at\": \"2023-02-11T18:50:44.000000Z\",\n            \"updated_at\": \"2023-02-11T18:50:44.000000Z\"\n        }\n    },\n    \"message\": \"User Logedin Successfully\"\n}"
+				},
+				{
+					"name": "Login - failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@mail.com\",\n    \"password\":\"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 18:51:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 11 Feb 2023 18:51:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.15"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Login Failed\",\n    \"errors\": [\n        \"Login failed\"\n    ]\n}"
+				}
+			]
+		}
+	]
+}
