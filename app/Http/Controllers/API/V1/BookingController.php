@@ -19,8 +19,8 @@ class BookingController extends Controller
         $toCityCode = $requestData["to_city_code"];
         $busId =  $requestData["bus_id"];
 
-        $bookingSeatIds = Booking::where("bus_id", $busId)->where("to_city_code", ">", $fromCityCode)->pluck("seat_code")->toArray();
-        $availableSeats = BusSeat::whereNotIn("seat_code", $bookingSeatIds)->get(['id', 'seat_code']);
+        $bookedSeatIds = Booking::where("bus_id", $busId)->where("to_city_code", ">", $fromCityCode)->pluck("seat_code")->toArray();
+        $availableSeats = BusSeat::whereNotIn("seat_code", $bookedSeatIds)->get(['id', 'seat_code']);
         return Response::response($availableSeats, "List of available seats", null, Response::SUCCESS);
     }
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests\API;
 
-
+use App\Rules\AvailableSeatRule;
 
 class BookingRequest extends BaseRequest
 {
-
 
     private function setRules()
     {
@@ -23,9 +22,13 @@ class BookingRequest extends BaseRequest
         // POST Request
         return [
             "bus_id" => "required|exists:buses,id",
-            "seat_code" => "required|exists:bus_seats,seat_code",
             "from_city_code" => "required_with:to_city_code|lt:to_city_code|exists:cities,number",
             "to_city_code" => "required_with:from_city_code|gt:from_city_code|exists:cities,number",
+            "seat_code" => [
+                "required",
+                "exists:bus_seats,seat_code",
+                new AvailableSeatRule($this->input("bus_id"), $this->input("from_city_code"))
+            ],
         ];
     }
 
