@@ -2,12 +2,9 @@
 
 namespace App\Http\Requests\API;
 
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
-use Illuminate\Foundation\Http\FormRequest;
 
-class BookingRequest extends FormRequest
+class BookingRequest extends BaseRequest
 {
 
 
@@ -33,16 +30,6 @@ class BookingRequest extends FormRequest
     }
 
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -50,11 +37,5 @@ class BookingRequest extends FormRequest
     public function rules()
     {
         return $this->setRules();
-    }
-
-    // Override failedValidation to return error message instaed of redirect
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json(["errors" => $validator->errors()->all()], 422));
     }
 }
